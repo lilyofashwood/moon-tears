@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moon Tears Cipher</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #08090b;
+    --panel: #11141a;
+    --ink: #f3f0e8;
+    --muted: #a9a29a;
+    --line: #2a2e38;
+    --accent: #d9d0ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 28px;
+    background:
+      radial-gradient(circle at top left, #182016, transparent 38%),
+      radial-gradient(circle at top right, #1a1526, transparent 42%),
+      var(--bg);
+    color: var(--ink);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  h1 {
+    margin: 0 0 8px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    letter-spacing: .08em;
+  }
+  .sub { color: var(--muted); margin-bottom: 24px; max-width: 860px; line-height: 1.5; }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: color-mix(in srgb, var(--panel) 88%, transparent);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.28);
+  }
+  label {
+    display: block;
+    color: var(--muted);
+    margin: 12px 0 6px;
+    font-size: 13px;
+    letter-spacing: .04em;
+  }
+  textarea, input, select {
+    width: 100%;
+    background: #080a0f;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    font: 15px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  textarea { min-height: 180px; resize: vertical; }
+  .output { min-height: 260px; white-space: pre-wrap; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .row > * { flex: 1; min-width: 170px; }
+  button {
+    margin-top: 12px;
+    border: 1px solid #4b4462;
+    color: var(--ink);
+    background: linear-gradient(180deg, #2a2440, #151827);
+    border-radius: 999px;
+    padding: 11px 16px;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: .05em;
+  }
+  button:hover { border-color: var(--accent); }
+  .status {
+    margin-top: 10px;
+    color: var(--accent);
+    min-height: 1.4em;
+    font-size: 13px;
+  }
+  code { color: var(--accent); }
+  .small { color: var(--muted); font-size: 13px; line-height: 1.5; }
+</style>
+</head>
+<body>
+  <h1>☽ Moon Tears Cipher ☾</h1>
+  <div class="sub">
+    Base-six rain stacks hidden as combining marks below carrier letters.
+    Payload digits use 2-7 marks. Decorative letters use 1 moon-tear.
+    Hexcomb logic: honeycomb → six → base-6.
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Encode</h2>
+      <label for="carrier">carrier poem</label>
+      <textarea id="carrier">raindrop notes from iris apples
+fall into the asphalt crackles
+where hexcomb flowers hum in fractals
+and ashes bloom while ravens cackle</textarea>
+
+      <label for="payload">payload</label>
+      <input id="payload" value="honeysuckle">
+
+      <div class="row">
+        <div>
+          <label for="mode">mode</label>
+          <select id="mode">
+            <option value="ascii3">ascii3 compact: 3 base-six digits per ASCII char</option>
+            <option value="utf8_4">utf8_4 robust: 4 base-six digits per UTF-8 byte</option>
+          </select>
+        </div>
+        <div>
+          <label for="spread">placement</label>
+          <select id="spread">
+            <option value="spread">spread payload across whole carrier</option>
+            <option value="front">front-load payload</option>
+          </select>
+        </div>
+      </div>
+
+      <button onclick="encodeMoonTears()">encode rain</button>
+      <button onclick="copyText('encoded')">copy encoded text</button>
+      <div id="encodeStatus" class="status"></div>
+
+      <label for="encoded">encoded output</label>
+      <textarea id="encoded" class="output"></textarea>
+    </section>
+
+    <section class="card">
+      <h2>Decode</h2>
+      <label for="decodeInput">encoded moon-tears text</label>
+      <textarea id="decodeInput" class="output"></textarea>
+
+      <label for="decodeMode">mode</label>
+      <select id="decodeMode">
+        <option value="ascii3">ascii3 compact</option>
+        <option value="utf8_4">utf8_4 robust</option>
+      </select>
+
+      <button onclick="decodeMoonTears()">decode rain</button>
+      <button onclick="copyText('decoded')">copy decoded payload</button>
+      <div id="decodeStatus" class="status"></div>
+
+      <label for="decoded">decoded payload</label>
+      <textarea id="decoded"></textarea>
+
+      <div class="small">
+        Decode rule: count only the moon-tear combining marks below letters.
+        One mark is atmosphere. Two to seven marks are payload digits 0-5.
+      </div>
+    </section>
+  </div>
+
+<script>
+const MARKS = [
+  "\u0325", // ring below
+  "\u0323", // dot below
+  "\u032C", // caron below
+  "\u0330", // tilde below
+  "\u032D", // circumflex below
+  "\u032E", // breve below
+  "\u0331"  // macron below
+];
+
+const BASELINE = 1;
+const PAYLOAD_OFFSET = 2;
+
+function isLetter(ch) {
+  return /\p{L}/u.test(ch);
+}
+
+function isCombiningMark(ch) {
+  return /\p{M}/u.test(ch);
+}
+
+function stack(height) {
+  return MARKS.slice(0, height).join("");
+}
+
+function toBase6Fixed(value, width) {
+  if (value < 0 || value >= Math.pow(6, width)) {
+    throw new Error(`Value ${value} does not fit in ${width} base-six digits`);
+  }
+  const digits = new Array(width).fill(0);
+  for (let i = width - 1; i >= 0; i--) {
+    digits[i] = value % 6;
+    value = Math.floor(value / 6);
+  }
+  return digits;
+}
+
+function fromBase6Fixed(digits) {
+  let value = 0;
+  for (const d of digits) {
+    value = value * 6 + d;
+  }
+  return value;
+}
+
+function payloadToDigits(payload, mode) {
+  const digits = [];
+  if (mode === "ascii3") {
+    for (const ch of Array.from(payload)) {
+      const v = ch.codePointAt(0);
+      if (v > 127) {
+        throw new Error(`ascii3 only supports ordinary ASCII. Use utf8_4 for ${ch}.`);
+      }
+      digits.push(...toBase6Fixed(v, 3));
+    }
+    return digits;
+  }
+
+  const bytes = new TextEncoder().encode(payload);
+  for (const b of bytes) {
+    digits.push(...toBase6Fixed(b, 4));
+  }
+  return digits;
+}
+
+function digitsToPayload(digits, mode) {
+  const width = mode === "ascii3" ? 3 : 4;
+  if (digits.length % width !== 0) {
+    throw new Error(`Found ${digits.length} payload digits, not divisible by ${width}.`);
+  }
+
+  const values = [];
+  for (let i = 0; i < digits.length; i += width) {
+    values.push(fromBase6Fixed(digits.slice(i, i + width)));
+  }
+
+  if (mode === "ascii3") {
+    return values.map(v => String.fromCharCode(v)).join("");
+  }
+
+  return new TextDecoder().decode(new Uint8Array(values));
+}
+
+function evenlySpacedPositions(total, needed) {
+  if (needed > total) throw new Error(`Need ${needed} carrier letters, but carrier has ${total}.`);
+  const set = new Set();
+  for (let i = 0; i < needed; i++) {
+    const pos = Math.floor((i + 0.5) * total / needed);
+    set.add(Math.min(total - 1, Math.max(0, pos)));
+  }
+  // In very tiny carriers, rounding collisions are possible. Fill gaps if needed.
+  if (set.size < needed) {
+    for (let i = 0; i < total && set.size < needed; i++) set.add(i);
+  }
+  return set;
+}
+
+function encodeMoonTears() {
+  const carrier = document.getElementById("carrier").value;
+  const payload = document.getElementById("payload").value;
+  const mode = document.getElementById("mode").value;
+  const spread = document.getElementById("spread").value === "spread";
+  const status = document.getElementById("encodeStatus");
+  const output = document.getElementById("encoded");
+
+  try {
+    const chars = Array.from(carrier);
+    const carrierRanks = [];
+    chars.forEach((ch, idx) => { if (isLetter(ch)) carrierRanks.push(idx); });
+
+    const digits = payloadToDigits(payload, mode);
+    if (digits.length > carrierRanks.length) {
+      throw new Error(`Payload needs ${digits.length} carrier letters, but poem has ${carrierRanks.length}.`);
+    }
+
+    const chosenRanks = spread
+      ? evenlySpacedPositions(carrierRanks.length, digits.length)
+      : new Set([...Array(digits.length).keys()]);
+
+    const rankToDigit = new Map();
+    let di = 0;
+    for (let rank = 0; rank < carrierRanks.length; rank++) {
+      if (chosenRanks.has(rank)) {
+        rankToDigit.set(rank, digits[di++]);
+      }
+    }
+
+    let result = "";
+    let rank = 0;
+    for (const ch of chars) {
+      result += ch;
+      if (isLetter(ch)) {
+        if (rankToDigit.has(rank)) {
+          result += stack(rankToDigit.get(rank) + PAYLOAD_OFFSET);
+        } else {
+          result += stack(BASELINE);
+        }
+        rank++;
+      }
+    }
+
+    output.value = result;
+    document.getElementById("decodeInput").value = result;
+    document.getElementById("decodeMode").value = mode;
+    status.textContent = `encoded ${payload.length} chars as ${digits.length} base-six rain digits across ${carrierRanks.length} carrier letters`;
+  } catch (err) {
+    status.textContent = "error: " + err.message;
+  }
+}
+
+function decodeMoonTears() {
+  const text = document.getElementById("decodeInput").value;
+  const mode = document.getElementById("decodeMode").value;
+  const status = document.getElementById("decodeStatus");
+  const output = document.getElementById("decoded");
+
+  try {
+    const digits = [];
+    let currentBase = null;
+    let currentMarks = [];
+
+    function flush() {
+      if (currentBase !== null && isLetter(currentBase)) {
+        let count = 0;
+        for (const mark of currentMarks) {
+          if (MARKS.includes(mark)) count++;
+        }
+        if (count >= PAYLOAD_OFFSET) {
+          const digit = count - PAYLOAD_OFFSET;
+          if (digit < 0 || digit > 5) throw new Error(`Invalid rain digit ${digit}`);
+          digits.push(digit);
+        }
+      }
+      currentBase = null;
+      currentMarks = [];
+    }
+
+    for (const ch of Array.from(text)) {
+      if (isCombiningMark(ch)) {
+        currentMarks.push(ch);
+      } else {
+        flush();
+        currentBase = ch;
+      }
+    }
+    flush();
+
+    output.value = digitsToPayload(digits, mode);
+    status.textContent = `decoded ${digits.length} base-six rain digits`;
+  } catch (err) {
+    status.textContent = "error: " + err.message;
+  }
+}
+
+async function copyText(id) {
+  const text = document.getElementById(id).value;
+  await navigator.clipboard.writeText(text);
+}
+
+encodeMoonTears();
+</script>
+</body>
+</html>
