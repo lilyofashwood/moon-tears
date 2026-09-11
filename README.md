@@ -1,13 +1,13 @@
 # ☽ 𝗆𝐨𝐨𝗇 𝗍𝐞𝐚𝗋𝗌 ☾
 
-rain gathers below the letters; the number of drops remembers a digit.
+𝗋𝐚𝐢𝗇 𝗀𝐚𝗍𝗁𝐞𝗋𝗌 𝖻𝐞𝗅𝐨𝗐 𝗍𝗁𝐞 𝗅𝐞𝗍𝗍𝐞𝗋𝗌; 𝗍𝗁𝐞 𝗇𝐮𝗆𝖻𝐞𝗋 𝐨𝖿 𝖽𝗋𝐨𝗉𝗌 𝗋𝐞𝗆𝐞𝗆𝖻𝐞𝗋𝗌 𝐚 𝖽𝐢𝗀𝐢𝗍.
 
-Recovered Moon Tears: three base-six digits per ASCII character, or four per UTF-8 byte. Each digit is a stack of two through seven reserved combining marks. One mark is decorative. This is distinct from Zalgo's digit-by-mark identities and Diacritic Bloom's selector channel.
+𝗋𝐞𝖼𝐨𝗏𝐞𝗋𝐞𝖽 𝗆𝐨𝐨𝗇 𝗍𝐞𝐚𝗋𝗌: 𝗍𝗁𝗋𝐞𝐞 𝖻𝐚𝗌𝐞-𝗌𝐢𝗑 𝖽𝐢𝗀𝐢𝗍𝗌 𝗉𝐞𝗋 𝐚𝗌𝖼𝐢𝐢 𝖼𝗁𝐚𝗋𝐚𝖼𝗍𝐞𝗋, 𝐨𝗋 𝖿𝐨𝐮𝗋 𝗉𝐞𝗋 𝐮𝗍𝖿-8 𝖻𝗒𝗍𝐞. 𝐞𝐚𝖼𝗁 𝖽𝐢𝗀𝐢𝗍 𝐢𝗌 𝐚 𝗌𝗍𝐚𝖼𝗄 𝐨𝖿 𝗍𝗐𝐨 𝗍𝗁𝗋𝐨𝐮𝗀𝗁 𝗌𝐞𝗏𝐞𝗇 𝗋𝐞𝗌𝐞𝗋𝗏𝐞𝖽 𝖼𝐨𝗆𝖻𝐢𝗇𝐢𝗇𝗀 𝗆𝐚𝗋𝗄𝗌. 𝐨𝗇𝐞 𝗆𝐚𝗋𝗄 𝐢𝗌 𝖽𝐞𝖼𝐨𝗋𝐚𝗍𝐢𝗏𝐞. 𝗍𝗁𝐢𝗌 𝐢𝗌 𝖽𝐢𝗌𝗍𝐢𝗇𝖼𝗍 𝖿𝗋𝐨𝗆 𝗓𝐚𝗅𝗀𝐨'𝗌 𝖽𝐢𝗀𝐢𝗍-𝖻𝗒-𝗆𝐚𝗋𝗄 𝐢𝖽𝐞𝗇𝗍𝐢𝗍𝐢𝐞𝗌 𝐚𝗇𝖽 𝖽𝐢𝐚𝖼𝗋𝐢𝗍𝐢𝖼 𝖻𝗅𝐨𝐨𝗆'𝗌 𝗌𝐞𝗅𝐞𝖼𝗍𝐨𝗋 𝖼𝗁𝐚𝗇𝗇𝐞𝗅.
 
-Open `index.html` for the offline browser demo / Pages entry point. Run `python -m unittest -v` or `python moon_tears.py --help` for the CLI. No dependencies, uploads or keys.
+𝐨𝗉𝐞𝗇 `index.html` 𝖿𝐨𝗋 𝗍𝗁𝐞 𝐨𝖿𝖿𝗅𝐢𝗇𝐞 𝖻𝗋𝐨𝗐𝗌𝐞𝗋 𝖽𝐞𝗆𝐨 / 𝗉𝐚𝗀𝐞𝗌 𝐞𝗇𝗍𝗋𝗒 𝗉𝐨𝐢𝗇𝗍. 𝗋𝐮𝗇 `python -m unittest -v` 𝐨𝗋 `python moon_tears.py --help` 𝖿𝐨𝗋 𝗍𝗁𝐞 𝖼𝗅𝐢. 𝗇𝐨 𝖽𝐞𝗉𝐞𝗇𝖽𝐞𝗇𝖼𝐢𝐞𝗌, 𝐮𝗉𝗅𝐨𝐚𝖽𝗌 𝐨𝗋 𝗄𝐞𝗒𝗌.
 
-The two modes and mark order are historical. `historical/` preserves the original Python, HTML, carrier and honeysuckle specimen from `moon_tears_cipher_bundle.zip` byte for byte. The loose `raindrop_honeysuckle_ciphertext.txt` is instead a Vigenère/LSB experiment and is kept with background context, not claimed as this codec's vector. Hardened adapters now reject out-of-domain decoded values, overgrown stacks, invalid UTF-8 and reserved marks already in a carrier; the browser preserves a leading BOM and clears stale output on failure. These are new validation decisions, not a new wire format.
+𝗍𝗁𝐞 𝗍𝗐𝐨 𝗆𝐨𝖽𝐞𝗌 𝐚𝗇𝖽 𝗆𝐚𝗋𝗄 𝐨𝗋𝖽𝐞𝗋 𝐚𝗋𝐞 𝗁𝐢𝗌𝗍𝐨𝗋𝐢𝖼𝐚𝗅. `historical/` 𝗉𝗋𝐞𝗌𝐞𝗋𝗏𝐞𝗌 𝗍𝗁𝐞 𝐨𝗋𝐢𝗀𝐢𝗇𝐚𝗅 𝗉𝗒𝗍𝗁𝐨𝗇, 𝗁𝗍𝗆𝗅, 𝖼𝐚𝗋𝗋𝐢𝐞𝗋 𝐚𝗇𝖽 𝗁𝐨𝗇𝐞𝗒𝗌𝐮𝖼𝗄𝗅𝐞 𝗌𝗉𝐞𝖼𝐢𝗆𝐞𝗇 𝖿𝗋𝐨𝗆 `moon_tears_cipher_bundle.zip` 𝖻𝗒𝗍𝐞 𝖿𝐨𝗋 𝖻𝗒𝗍𝐞. 𝗍𝗁𝐞 𝗅𝐨𝐨𝗌𝐞 `raindrop_honeysuckle_ciphertext.txt` 𝐢𝗌 𝐢𝗇𝗌𝗍𝐞𝐚𝖽 𝐚 𝗏𝐢𝗀𝐞𝗇è𝗋𝐞/𝗅𝗌𝖻 𝐞𝗑𝗉𝐞𝗋𝐢𝗆𝐞𝗇𝗍 𝐚𝗇𝖽 𝐢𝗌 𝗄𝐞𝗉𝗍 𝗐𝐢𝗍𝗁 𝖻𝐚𝖼𝗄𝗀𝗋𝐨𝐮𝗇𝖽 𝖼𝐨𝗇𝗍𝐞𝗑𝗍, 𝗇𝐨𝗍 𝖼𝗅𝐚𝐢𝗆𝐞𝖽 𝐚𝗌 𝗍𝗁𝐢𝗌 𝖼𝐨𝖽𝐞𝖼'𝗌 𝗏𝐞𝖼𝗍𝐨𝗋. 𝗁𝐚𝗋𝖽𝐞𝗇𝐞𝖽 𝐚𝖽𝐚𝗉𝗍𝐞𝗋𝗌 𝗇𝐨𝗐 𝗋𝐞𝗃𝐞𝖼𝗍 𝐨𝐮𝗍-𝐨𝖿-𝖽𝐨𝗆𝐚𝐢𝗇 𝖽𝐞𝖼𝐨𝖽𝐞𝖽 𝗏𝐚𝗅𝐮𝐞𝗌, 𝐨𝗏𝐞𝗋𝗀𝗋𝐨𝗐𝗇 𝗌𝗍𝐚𝖼𝗄𝗌, 𝐢𝗇𝗏𝐚𝗅𝐢𝖽 𝐮𝗍𝖿-8 𝐚𝗇𝖽 𝗋𝐞𝗌𝐞𝗋𝗏𝐞𝖽 𝗆𝐚𝗋𝗄𝗌 𝐚𝗅𝗋𝐞𝐚𝖽𝗒 𝐢𝗇 𝐚 𝖼𝐚𝗋𝗋𝐢𝐞𝗋; 𝗍𝗁𝐞 𝖻𝗋𝐨𝗐𝗌𝐞𝗋 𝗉𝗋𝐞𝗌𝐞𝗋𝗏𝐞𝗌 𝐚 𝗅𝐞𝐚𝖽𝐢𝗇𝗀 𝖻𝐨𝗆 𝐚𝗇𝖽 𝖼𝗅𝐞𝐚𝗋𝗌 𝗌𝗍𝐚𝗅𝐞 𝐨𝐮𝗍𝗉𝐮𝗍 𝐨𝗇 𝖿𝐚𝐢𝗅𝐮𝗋𝐞. 𝗍𝗁𝐞𝗌𝐞 𝐚𝗋𝐞 𝗇𝐞𝗐 𝗏𝐚𝗅𝐢𝖽𝐚𝗍𝐢𝐨𝗇 𝖽𝐞𝖼𝐢𝗌𝐢𝐨𝗇𝗌, 𝗇𝐨𝗍 𝐚 𝗇𝐞𝗐 𝗐𝐢𝗋𝐞 𝖿𝐨𝗋𝗆𝐚𝗍.
 
-There is no length field or checksum in this format. Some damaged strings can still decode to plausible but wrong text; a complete digit-group truncation is undetectable. Do not normalize the encoded Unicode. It is a puzzle encoding, not encryption or a reliable storage protocol. Keep originals and the selected mode.
+𝗍𝗁𝐞𝗋𝐞 𝐢𝗌 𝗇𝐨 𝗅𝐞𝗇𝗀𝗍𝗁 𝖿𝐢𝐞𝗅𝖽 𝐨𝗋 𝖼𝗁𝐞𝖼𝗄𝗌𝐮𝗆 𝐢𝗇 𝗍𝗁𝐢𝗌 𝖿𝐨𝗋𝗆𝐚𝗍. 𝗌𝐨𝗆𝐞 𝖽𝐚𝗆𝐚𝗀𝐞𝖽 𝗌𝗍𝗋𝐢𝗇𝗀𝗌 𝖼𝐚𝗇 𝗌𝗍𝐢𝗅𝗅 𝖽𝐞𝖼𝐨𝖽𝐞 𝗍𝐨 𝗉𝗅𝐚𝐮𝗌𝐢𝖻𝗅𝐞 𝖻𝐮𝗍 𝗐𝗋𝐨𝗇𝗀 𝗍𝐞𝗑𝗍; 𝐚 𝖼𝐨𝗆𝗉𝗅𝐞𝗍𝐞 𝖽𝐢𝗀𝐢𝗍-𝗀𝗋𝐨𝐮𝗉 𝗍𝗋𝐮𝗇𝖼𝐚𝗍𝐢𝐨𝗇 𝐢𝗌 𝐮𝗇𝖽𝐞𝗍𝐞𝖼𝗍𝐚𝖻𝗅𝐞. 𝖽𝐨 𝗇𝐨𝗍 𝗇𝐨𝗋𝗆𝐚𝗅𝐢𝗓𝐞 𝗍𝗁𝐞 𝐞𝗇𝖼𝐨𝖽𝐞𝖽 𝐮𝗇𝐢𝖼𝐨𝖽𝐞. 𝐢𝗍 𝐢𝗌 𝐚 𝗉𝐮𝗓𝗓𝗅𝐞 𝐞𝗇𝖼𝐨𝖽𝐢𝗇𝗀, 𝗇𝐨𝗍 𝐞𝗇𝖼𝗋𝗒𝗉𝗍𝐢𝐨𝗇 𝐨𝗋 𝐚 𝗋𝐞𝗅𝐢𝐚𝖻𝗅𝐞 𝗌𝗍𝐨𝗋𝐚𝗀𝐞 𝗉𝗋𝐨𝗍𝐨𝖼𝐨𝗅. 𝗄𝐞𝐞𝗉 𝐨𝗋𝐢𝗀𝐢𝗇𝐚𝗅𝗌 𝐚𝗇𝖽 𝗍𝗁𝐞 𝗌𝐞𝗅𝐞𝖼𝗍𝐞𝖽 𝗆𝐨𝖽𝐞.
 
-Private review source recovered September 10 2026 from `cipher_documents/documents` in Ashleigh's project archive. Exact original publication date and license were not established; no new license is imposed. Public Pages deployment awaits owner review.
+𝗉𝗋𝐢𝗏𝐚𝗍𝐞 𝗋𝐞𝗏𝐢𝐞𝗐 𝗌𝐨𝐮𝗋𝖼𝐞 𝗋𝐞𝖼𝐨𝗏𝐞𝗋𝐞𝖽 𝗌𝐞𝗉𝗍𝐞𝗆𝖻𝐞𝗋 10 2026 𝖿𝗋𝐨𝗆 `cipher_documents/documents` 𝐢𝗇 𝐚𝗌𝗁𝗅𝐞𝐢𝗀𝗁'𝗌 𝗉𝗋𝐨𝗃𝐞𝖼𝗍 𝐚𝗋𝖼𝗁𝐢𝗏𝐞. 𝐞𝗑𝐚𝖼𝗍 𝐨𝗋𝐢𝗀𝐢𝗇𝐚𝗅 𝗉𝐮𝖻𝗅𝐢𝖼𝐚𝗍𝐢𝐨𝗇 𝖽𝐚𝗍𝐞 𝐚𝗇𝖽 𝗅𝐢𝖼𝐞𝗇𝗌𝐞 𝗐𝐞𝗋𝐞 𝗇𝐨𝗍 𝐞𝗌𝗍𝐚𝖻𝗅𝐢𝗌𝗁𝐞𝖽; 𝗇𝐨 𝗇𝐞𝗐 𝗅𝐢𝖼𝐞𝗇𝗌𝐞 𝐢𝗌 𝐢𝗆𝗉𝐨𝗌𝐞𝖽. 𝗉𝐮𝖻𝗅𝐢𝖼 𝗉𝐚𝗀𝐞𝗌 𝖽𝐞𝗉𝗅𝐨𝗒𝗆𝐞𝗇𝗍 𝐚𝗐𝐚𝐢𝗍𝗌 𝐨𝗐𝗇𝐞𝗋 𝗋𝐞𝗏𝐢𝐞𝗐.
