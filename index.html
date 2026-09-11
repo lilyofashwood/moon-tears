@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Moon Tears Cipher</title>
+<title data-garden-title>Moon Tears Cipher</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   :root {
@@ -112,8 +112,8 @@ and ashes bloom while ravens cackle</textarea>
         <div>
           <label for="mode">mode</label>
           <select id="mode">
-            <option value="ascii3">ascii3 compact: 3 base-six digits per ASCII char</option>
-            <option value="utf8_4">utf8_4 robust: 4 base-six digits per UTF-8 byte</option>
+            <option value="ascii3">ascii3 · compact</option>
+            <option value="utf8_4">utf8_4 · Unicode bytes</option>
           </select>
         </div>
         <div>
@@ -125,6 +125,7 @@ and ashes bloom while ravens cackle</textarea>
         </div>
       </div>
 
+      <p class="small">Compact uses three base-six digits per ASCII character; Unicode mode uses four per UTF-8 byte. Neither mode has a checksum.</p>
       <button onclick="encodeMoonTears()">encode rain</button>
       <button onclick="copyText('encoded')">copy encoded text</button>
       <div id="encodeStatus" class="status"></div>
@@ -367,6 +368,13 @@ async function copyText(id) {
   await navigator.clipboard.writeText(text);
 }
 
+// Variant links select declared modes only; payload and carrier stay local.
+const requestedSettings = new URLSearchParams(location.search);
+for (const id of ["mode", "spread"]) {
+  const control = document.getElementById(id);
+  const requested = requestedSettings.get(id);
+  if ([...control.options].some(option => option.value === requested)) control.value = requested;
+}
 encodeMoonTears();
 </script>
 <script src="presentation.js" data-title-voice="bold-fraktur"></script></body>

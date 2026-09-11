@@ -1,5 +1,38 @@
 /* Interface lettering only; literal source/result regions keep their own styling. */
-.garden-presentation h1,.garden-presentation h2,.garden-presentation h3{line-height:1.5;overflow-wrap:anywhere}
-.garden-presentation p,.garden-presentation li,.garden-presentation label,.garden-presentation button,.garden-presentation a{overflow-wrap:anywhere}
+.garden-presentation :is(h1,h2,h3):not([data-literal] *){line-height:1.5;overflow-wrap:anywhere}
+.garden-presentation :is(p,li,label,button,a):not([data-literal] *){overflow-wrap:anywhere}
 .garden-presentation button,.garden-presentation select{line-height:1.5}
 .garden-literal-note{font-size:12px;line-height:1.8;opacity:.8}
+@media screen{
+  body.garden-presentation{
+    color-scheme:dark;min-height:100vh;color:var(--garden-ink,#f4e8df);
+    background:radial-gradient(ellipse at 12% 0%,var(--garden-glow,#41131f) 0,transparent 46%),radial-gradient(ellipse at 90% 28%,#29203270 0,transparent 38%),#08070b;
+  }
+  body.garden-presentation::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.38;background:radial-gradient(circle at 11% 23%,#dfbd77 0 1px,transparent 2px),radial-gradient(circle at 84% 12%,#d6bbc9 0 1px,transparent 2px),radial-gradient(circle at 69% 78%,#dfbd77 0 1px,transparent 2px);background-size:311px 407px,491px 367px,563px 521px}
+  body.garden-presentation>main,body.garden-presentation>.grid,body.garden-presentation>header,body.garden-presentation>footer,body.garden-presentation>.sub,body.garden-presentation>h1{position:relative}
+  body.garden-presentation :is(h1,h2,h3):not([data-literal] *){color:var(--garden-gold,#dec083);font-weight:400}
+  body.garden-presentation h1:not([data-literal] *){letter-spacing:.025em;text-shadow:0 0 32px #d8b56a24}
+  body.garden-presentation h2:not([data-literal] *){font-size:clamp(17px,2.5vw,23px);letter-spacing:.08em}
+  body.garden-presentation :is(a,label,summary):not([data-literal] *){color:#e7cfa7}
+  body.garden-presentation :is(button,select,input,textarea):not([data-literal] *){border-color:#806548;background:#100c12;color:#f4e8df;border-radius:3px}
+  body.garden-presentation button:not([data-literal] *){background:linear-gradient(120deg,#2b1520,#171015);border:1px solid #956852;box-shadow:inset 0 0 0 2px #08070b;min-height:42px}
+  body.garden-presentation button:hover:not(:disabled){border-color:#e7c483}
+  body.garden-presentation button:disabled{opacity:.5;cursor:not-allowed}
+  body.garden-presentation :is(button,a,summary,input,select,textarea):focus-visible{outline:2px solid #f2cb86;outline-offset:4px}
+  body.garden-presentation :is(p,li):not([data-literal] *){line-height:1.85}
+  body.garden-presentation .garden-literal-note{max-width:62rem;margin:35px auto 20px;padding:12px 18px;border-top:1px solid #745947;color:#c7b4c6;text-align:center}
+  body.garden-presentation ::selection{background:#8e365c;color:#fff7e8}
+  @media(max-width:580px){body.garden-presentation h1:not([data-literal] *){font-size:clamp(30px,9vw,48px)}}
+}
+@media(prefers-reduced-motion:reduce){.garden-presentation *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media screen{
+  body.garden-presentation{--garden-glow:#21182b;--garden-gold:#e3cfa3;max-width:1440px;margin:auto;font-family:ui-sans-serif,system-ui,sans-serif}
+  .garden-presentation>h1{font-size:clamp(36px,5.5vw,67px);padding:22px 0;border-bottom:1px solid #91724e}
+  .garden-presentation .sub{color:#cbbdcd;line-height:1.9;max-width:950px}
+  .garden-presentation .card{position:relative;background:linear-gradient(140deg,#201627dd,#0b0b12);border:1px solid #806544;border-radius:3px;box-shadow:inset 0 0 0 5px #08070b,0 20px 60px #0004;padding:clamp(20px,3vw,34px)}
+  .garden-presentation .card h2{border-bottom:1px solid #66516f;padding-bottom:12px}
+  .garden-presentation .small{color:#c5b7c9}
+  .garden-presentation .status{color:#ead19d;line-height:1.8}
+  .garden-presentation .output{line-height:4}
+  @media(max-width:580px){body.garden-presentation{padding:18px}.garden-presentation .row>*{min-width:0;width:100%}.garden-presentation .row{display:grid;grid-template-columns:1fr}}
+}
