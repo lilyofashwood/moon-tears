@@ -93,7 +93,7 @@
     Base-six rain stacks hidden as combining marks below carrier letters.
     Payload digits use 2-7 marks. Decorative letters use 1 moon-tear.
     Hexcomb logic: honeycomb → six → base-6.
-    Historical, unframed format: no checksum or corruption guarantee. Keep the selected mode and exact Unicode; do not normalize or strip marks.
+    Spread a message through the whole poem, or gather the rain at its beginning.
   </div>
 
   <div class="grid">
@@ -125,7 +125,7 @@ and ashes bloom while ravens cackle</textarea>
         </div>
       </div>
 
-      <p class="small">Compact uses three base-six digits per ASCII character; Unicode mode uses four per UTF-8 byte. Neither mode has a checksum.</p>
+      <p class="small">Compact uses three base-six digits per ASCII character; Unicode mode uses four per UTF-8 byte.</p>
       <button onclick="encodeMoonTears()">encode rain</button>
       <button onclick="copyText('encoded')">copy encoded text</button>
       <div id="encodeStatus" class="status"></div>
@@ -142,7 +142,7 @@ and ashes bloom while ravens cackle</textarea>
       <label for="decodeMode">mode</label>
       <select id="decodeMode">
         <option value="ascii3">ascii3 compact</option>
-        <option value="utf8_4">utf8_4 robust</option>
+        <option value="utf8_4">utf8_4 Unicode bytes</option>
       </select>
 
       <button onclick="decodeMoonTears()">decode rain</button>
@@ -159,6 +159,7 @@ and ashes bloom while ravens cackle</textarea>
     </section>
   </div>
 
+<details class="small"><summary>Carrying the weather</summary><p>Keep the selected mode and exact Unicode; decode before normalizing or stripping marks. The unframed format has no checksum or length field. Save the original alongside a transported copy.</p></details>
 <p class="garden-literal-note">Interface lettering is decoration. Source text, code, specimens and decoded results remain literal.</p><script>
 const MARKS = [
   "\u0325", // ring below

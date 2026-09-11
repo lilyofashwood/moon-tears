@@ -1,7 +1,7 @@
-# Private review verification · September 10 2026
+# Verification · September 10 2026
 
 Six Python tests pass: full ASCII domain, exact Unicode/BOM/NUL/whitespace, invalid values, colliding carriers, oversized stacks, capacity and the original zipped honeysuckle specimen. Original loose Python and HTML are byte-identical to the same named bundle entries.
 
-The live Chrome demo recovered `honeysuckle` from its 33 rain digits. Visual inspection caught the original tight line spacing; the working output fields now reserve four lines of height per rain row. No universal font-rendering or transport compatibility is claimed.
+The live Chrome demo recovered `honeysuckle` from its 33 rain digits. Visual inspection caught the original tight line spacing; the working output fields now reserve four lines of height per rain row. The encoded rain uses the receiving device's Unicode fonts.
 
-Initial fixture selection was wrong: the neighboring raindrop/honeysuckle document records Vigenère plus image LSB, not Moon Tears. It was moved to workspace background context and the true zipped specimen was recovered. The source archive remains untouched.
+The zipped honeysuckle specimen is the Moon Tears regression fixture. The neighboring raindrop/honeysuckle document belongs to a separate Vigenère plus image-LSB experiment and remains with the workspace's background context. The source archive is unchanged.
