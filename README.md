@@ -23,3 +23,12 @@
 ## 𝐚𝐮𝗍𝗁𝐨𝗋𝗌𝗁𝐢𝗉 𝐚𝗇𝖽 𝗅𝐢𝖼𝐞𝗇𝗌𝐞
 
 𝗅𝐢𝗅𝗒 𝐨𝖿 𝐚𝗌𝗁𝗐𝐨𝐨𝖽, 𝗐𝐢𝗍𝗁 𝐚𝐢-𝐚𝗌𝗌𝐢𝗌𝗍𝐞𝖽 𝐢𝗆𝗉𝗅𝐞𝗆𝐞𝗇𝗍𝐚𝗍𝐢𝐨𝗇 𝐚𝗇𝖽 𝖽𝐞𝗌𝐢𝗀𝗇. 𝗋𝐞𝖼𝐨𝗏𝐞𝗋𝐞𝖽 𝗌𝐞𝗉𝗍𝐞𝗆𝖻𝐞𝗋 10, 2026 𝖿𝗋𝐨𝗆 `cipher_documents/documents` 𝐢𝗇 𝗅𝐢𝗅𝗒'𝗌 𝗉𝗋𝐨𝗃𝐞𝖼𝗍 𝐚𝗋𝖼𝗁𝐢𝗏𝐞. [𝗆𝐢𝗍 𝗅𝐢𝖼𝐞𝗇𝗌𝐞𝖽](LICENSE), 𝖼𝐨𝗉𝗒𝗋𝐢𝗀𝗁𝗍 © 2026 `lilyofashwood`. [𝗏𝐞𝗋𝐢𝖿𝐢𝖼𝐚𝗍𝐢𝐨𝗇 𝗇𝐨𝗍𝐞𝗌](VERIFICATION.md) 𝗋𝐞𝖼𝐨𝗋𝖽 𝗍𝗁𝐞 𝐨𝗋𝐢𝗀𝐢𝗇𝐚𝗅 𝗌𝗉𝐞𝖼𝐢𝗆𝐞𝗇 𝐚𝗇𝖽 𝗋𝐨𝐮𝗇𝖽-𝗍𝗋𝐢𝗉 𝖼𝗁𝐞𝖼𝗄𝗌.
+
+<!-- garden-seam:moon-tears:start -->
+<section class="garden-seam" data-garden-seam="moon-tears" aria-label="A seam in the garden">
+<h2>⟡ 𝐚 𝗌𝐞𝐚𝗆 𝐢𝗇 𝗍𝗁𝐞 𝗀𝐚𝗋𝖽𝐞𝗇 ⟡</h2>
+<pre class="garden-seam-wire literal" data-garden-raw data-literal>ꪻ͏̍︎⃝͏̥︎⃤͏͗︎҉͏̩︎⃝͏̍ꫝ︎⃝͏̩︎⃝͏̍︎⃝͏̩︎⃝͏̊︎⃝ꫀ͏̹︎⃝͏̎︎⃝͏̩︎⃝͏̍︎⃝͏͜ ︎⃝͏̎︎⃝͏̹︎⃝͏̎︎⃝͏̯︎⃝ꪑ͏̊︎⃝͏̥︎⃤͏͗︎⃞͏̯︎⃪͏̆ꪮ︎⃫͏̯︎⃪͏̽︎⃥͏̪︎⃒͏͝︎҈ꪮ͏̪︎⃒͏̽︎⃥͏̳͏̿͏͓͏͗͏͈ꪀ͏̿͏̹͏̑͏̮ ꫝꪖᦓ ꪶꫀᠻꪻ ꪖ ᦓ꠸ꪶꪜꫀ᥅ ᥇ꪮ᭙ꪶ
+ᠻꪮ᥅ ꫀꪜꫀ᥅ꪗ ᭙ꪮ᥅ᦔ ꪻꪮꪮ ᦓꪑꪖꪶꪶ ꪻꪮ ꫝꪮꪶᦔ󠅔󠅨󠅥󠄠󠅢󠅯󠅷󠅬󠄠󠅩󠅳󠄠󠅮󠅯󠅴󠄠󠅥󠅭󠅰󠅴󠅹󠄮󠄠󠅉󠅴󠄠󠅩󠅳󠄠󠅷󠅡󠅩󠅴󠅩󠅮󠅧󠄠󠅦󠅯󠅲󠄠󠅡󠄠󠅲󠅡󠅩󠅮󠄠󠅹󠅯󠅵󠄠󠅨󠅡󠅶󠅥󠄠󠅮󠅯󠅴󠄠󠅮󠅡󠅭󠅥󠅤󠄮</pre>
+<p class="garden-seam-hint"><a href="https://lilyofashwood.github.io/font-garden/seams/#moon-tears" aria-label="Unfold this garden seam">𝐮𝗇𝖿𝐨𝗅𝖽 𝗍𝗁𝐞 𝗌𝐞𝐚𝗆 ↗</a></p>
+</section>
+<!-- garden-seam:moon-tears:end -->
